@@ -1,8 +1,10 @@
 const canvas = document.querySelector('.canvas');
 const slider = document.querySelector('.slider');
-const sliderCaption = document.querySelector('.size-count')
+const sliderCaption = document.querySelector('.size-count');
 const clearButton = document.querySelector('.clear');
+const rainbowButton = document.querySelector('.rainbow-button');
 const gridCheck = document.querySelector('.gridCheck');
+let mouseDown = false;
 let rainbowON = false;
 
     clearButton.addEventListener('click', () => {
@@ -14,10 +16,18 @@ let rainbowON = false;
             }
             else {
                 n.style = 'background-color: rgb(215, 218, 189);';
-            }            
-            
+            }
 
         });
+    });
+
+    rainbowButton.addEventListener('click', () => {
+
+        if (rainbowON === false) {
+            rainbowON = true;
+        } else {
+            rainbowON = false;
+        }
     });
 
     function deleteAllChild(node) {
@@ -34,7 +44,12 @@ let rainbowON = false;
 
         for (let i = 0; i < 3; i++) {
             let num = (Math.floor(Math.random() * (0 + 255)));
+
+            if (i === 2) {
+                colorCode += num;    
+            } else {
             colorCode += num + ', ';
+            }
         } 
 
         colorCode.slice(13, 2);
@@ -54,21 +69,38 @@ let rainbowON = false;
         tile.classList.add('tile');
         canvas.appendChild(tile);
     
-    }
-
-    console.log(rainbowColorHex());
+    };
 
     /*Event listener for the tiles before the slider is being set*/
+
     let tiles = document.querySelectorAll('.tile')
 
     tiles.forEach((t) => {
         t.addEventListener('mouseenter', (e) => {
-            if (rainbowON === false) {
+            if (rainbowON === false && mouseDown === true) {
                 e.target.style = 'background-color: black';
+            } else if (rainbowON === true && mouseDown === true) {
+                if (gridCheck.checked === true && mouseDown === true) {
+                    e.target.style = `background-color: ${rainbowColorHex()}; border: 1px black solid;`;
+                } else {
+                    e.target.style = `background-color: ${rainbowColorHex()}`;
+                }
             }        
 
         })
     })
+
+    tiles.forEach((t) => {
+        t.addEventListener('mousedown', () => {
+            mouseDown = true;
+            console.log(mouseDown)
+        });
+
+        t.addEventListener('mouseup', () => {
+            mouseDown = false;
+            console.log(mouseDown)
+        });
+    });
 
     gridCheck.oninput = () => {
         tiles.forEach((n) => {
@@ -86,7 +118,6 @@ let rainbowON = false;
 /*-------------- Setting up the slider configured grid and listeners --------------*/
 
 slider.oninput = () => {
-
     
     deleteAllChild(canvas);
 
@@ -108,12 +139,39 @@ slider.oninput = () => {
 
     let tiles = document.querySelectorAll('.tile')
 
+    /*this is a listener for the mouse button, so it will only draw when the mouse is pressed */
+    tiles.forEach((t) => {
+        t.addEventListener('mousedown', () => {
+            mouseDown = true;
+            console.log(mouseDown)
+        });
+
+        t.addEventListener('mouseup', () => {
+            mouseDown = false;
+            console.log(mouseDown)
+        });
+    });
+
     tiles.forEach((t) => {
         t.addEventListener('mouseenter', (e) => {
+            
 
-            if (rainbowON === false) {
+            if (rainbowON === false && mouseDown === true) {
+
                 e.target.style = 'background-color: black';
+            
+            } else if (rainbowON === true && mouseDown === true) {
+                if (gridCheck.checked === true && mouseDown === true) {
+
+                    e.target.style = `background-color: ${rainbowColorHex()}; border: 1px black solid;`;
+                
+                } else {
+
+                    e.target.style = `background-color: ${rainbowColorHex()}`;
+                
+                }
             }
+                
 
         })
     })
