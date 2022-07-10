@@ -48,7 +48,7 @@ const sliderCaption = document.querySelector('.size-count')
     let tiles = document.querySelectorAll('.tile')
 
     tiles.forEach((t) => {
-        t.addEventListener('mousedown', (e) => {
+        t.addEventListener('mouseover', (e) => {
                 e.target.style = 'background-color: black';
         })
     })
