@@ -97,7 +97,7 @@ let rainbowON = false;
 
             if (rainbowON === false && mouseDown === true && eraserON === false) {
 
-                e.target.style = `background-color: ${userColor.value}`;
+                e.target.style.backgroundColor = `${userColor.value}`;
             
             } else if (rainbowON === true && mouseDown === true) {
                 if (gridCheck.checked === true && mouseDown === true) {
@@ -190,7 +190,7 @@ slider.oninput = () => {
 
             if (rainbowON === false && mouseDown === true && eraserON === false) {
 
-                e.target.style = `background-color: ${userColor.value}`;
+                e.target.style.backgroundColor = `${userColor.value}`;
             
             } else if (rainbowON === true && mouseDown === true) {
                 if (gridCheck.checked === true && mouseDown === true) {
