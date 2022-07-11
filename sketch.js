@@ -137,10 +137,10 @@ let rainbowON = false;
     gridCheck.oninput = () => {
         tiles.forEach((n) => {
             if (gridCheck.checked === true) {
-                n.style.border = 'border: 1px black solid';
+                n.style.border = '1px black solid';
             }
             else {
-                n.style.border = 'background-color: rgb(215, 218, 189);'
+                n.style.border = '';
             }
         });
     }
