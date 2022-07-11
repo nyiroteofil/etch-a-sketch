@@ -26,7 +26,7 @@ let rainbowON = false;
     eraserButton.addEventListener('click', () => {
         if (eraserON === false) {
             eraserON = true;
-            eraserButton.style = 'border: 3px solid green;';
+            eraserButton.style = 'border: 3px solid firebrick;';
         } else {
             eraserON = false;
             eraserButton.style.border = 'grey 3px solid';
@@ -38,7 +38,7 @@ let rainbowON = false;
 
         if (rainbowON === false) {
             rainbowON = true;
-            rainbowButton.style = 'border: 3px solid green;'
+            rainbowButton.style = 'border: 3px solid firebrick;'
         } else {
             rainbowON = false;
             rainbowButton.style.border = '3px grey solid';
@@ -216,10 +216,10 @@ slider.oninput = () => {
     gridCheck.oninput = () => {
         tiles.forEach((n) => {
             if (gridCheck.checked === true) {
-                n.style = 'background-color: rgb(215, 218, 189); border: 1px black solid';
+                n.style.border = '1px black solid';
             }
             else {
-                n.style = 'background-color: rgb(215, 218, 189);'
+                n.style.border = '';
             }
         });
     }
