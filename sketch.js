@@ -5,6 +5,7 @@ const clearButton = document.querySelector('.clear');
 const rainbowButton = document.querySelector('.rainbow-button');
 const gridCheck = document.querySelector('.gridCheck');
 const eraserButton = document.querySelector('.eraser');
+const userColor = document.querySelector('.userColor')
 let eraserON = false;
 let mouseDown = false;
 let rainbowON = false;
@@ -96,7 +97,7 @@ let rainbowON = false;
 
             if (rainbowON === false && mouseDown === true && eraserON === false) {
 
-                e.target.style = 'background-color: black';
+                e.target.style = `background-color: ${userColor.value}`;
             
             } else if (rainbowON === true && mouseDown === true) {
                 if (gridCheck.checked === true && mouseDown === true) {
@@ -189,7 +190,7 @@ slider.oninput = () => {
 
             if (rainbowON === false && mouseDown === true && eraserON === false) {
 
-                e.target.style = 'background-color: black';
+                e.target.style = `background-color: ${userColor.value}`;
             
             } else if (rainbowON === true && mouseDown === true) {
                 if (gridCheck.checked === true && mouseDown === true) {

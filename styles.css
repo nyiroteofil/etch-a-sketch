@@ -36,15 +36,16 @@ body {
 .controls {
     border: 3px black solid;
     width: 150px;
-    height: 300px;
+    height: 360px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: left;
     flex-shrink: 1;
     background-color: rgb(13, 55, 110);
     border-radius: 22px;
+    padding-left: 15px;;
 }
 
 .size-count {
@@ -107,8 +108,19 @@ body {
     background-color:rgb(215, 218, 189);
     display: grid;
     border-radius: 10px;
+    cursor: crosshair;
 }
 
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
 .main {
     display: flex;
     gap: 23px;
@@ -144,7 +156,7 @@ body {
    font-size: 20px;
    border: 3px grey solid;
    text-align: center;
-   width: auto;
+   width: 95px;;
    height: auto;
    border-radius: 5px;
    animation-name: rainbow-button;
