@@ -4,6 +4,8 @@ const sliderCaption = document.querySelector('.size-count');
 const clearButton = document.querySelector('.clear');
 const rainbowButton = document.querySelector('.rainbow-button');
 const gridCheck = document.querySelector('.gridCheck');
+const eraserButton = document.querySelector('.eraser');
+let eraserON = false;
 let mouseDown = false;
 let rainbowON = false;
 
@@ -21,12 +23,25 @@ let rainbowON = false;
         });
     });
 
+    eraserButton.addEventListener('click', () => {
+        if (eraserON === false) {
+            eraserON = true;
+            eraserButton.style = 'border: 3px solid green;';
+        } else {
+            eraserON = false;
+            eraserButton.style.border = 'grey 3px solid';
+        }
+    });
+
+
     rainbowButton.addEventListener('click', () => {
 
         if (rainbowON === false) {
             rainbowON = true;
+            rainbowButton.style = 'border: 3px solid green;'
         } else {
             rainbowON = false;
+            rainbowButton.style.border = '3px grey solid';
         }
     });
 
@@ -77,15 +92,31 @@ let rainbowON = false;
 
     tiles.forEach((t) => {
         t.addEventListener('mouseenter', (e) => {
-            if (rainbowON === false && mouseDown === true) {
+             
+
+            if (rainbowON === false && mouseDown === true && eraserON === false) {
+
                 e.target.style = 'background-color: black';
+            
             } else if (rainbowON === true && mouseDown === true) {
                 if (gridCheck.checked === true && mouseDown === true) {
+
                     e.target.style = `background-color: ${rainbowColorHex()}; border: 1px black solid;`;
+                
                 } else {
+
                     e.target.style = `background-color: ${rainbowColorHex()}`;
+                
                 }
-            }        
+            }   else if (eraserON === true && mouseDown === true && rainbowON === false) {
+                if (gridCheck.checked === true) {
+                    e.target.style = 'background-style: rgb(215, 218, 189); border: 1px solid black';
+                } else {
+                    e.target.style = 'background-style: rgb(215, 218, 189);';
+                }
+            }
+                
+
 
         })
     })
@@ -156,7 +187,7 @@ slider.oninput = () => {
         t.addEventListener('mouseenter', (e) => {
             
 
-            if (rainbowON === false && mouseDown === true) {
+            if (rainbowON === false && mouseDown === true && eraserON === false) {
 
                 e.target.style = 'background-color: black';
             
@@ -169,6 +200,12 @@ slider.oninput = () => {
 
                     e.target.style = `background-color: ${rainbowColorHex()}`;
                 
+                }
+            }   else if (eraserON === true && mouseDown === true && rainbowON === false) {
+                if (gridCheck.checked === true) {
+                    e.target.style = 'background-style: rgb(215, 218, 189); border: 1px solid black';
+                } else {
+                    e.target.style = 'background-style: rgb(215, 218, 189);';
                 }
             }
                 

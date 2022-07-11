@@ -70,10 +70,28 @@ body {
    font-size: 20px;
    text-align: center;
    border: 2px solid rgb(36, 204, 190);
-   width: auto;
+   width: 70px;
    height: auto;
    border-radius: 5px;
    background: linear-gradient(180deg, rgb(11, 164, 202), rgb(26, 89, 204), rgb(12, 161, 206));
+}
+
+.eraser {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    border: 3px grey solid;
+    width: 70px;
+    height: auto;
+    border-radius: 5px;
+    background: linear-gradient(180deg, rgb(11, 164, 202), rgb(26, 89, 204), rgb(12, 161, 206));   
+}
+
+.check-container {
+    color:rgb(215, 218, 189);
+}
+
+.gridCheck:checked {
 }
 
 .control-title {
@@ -127,8 +145,8 @@ body {
 .rainbow-button {
    font-family: Arial, Helvetica, sans-serif;
    font-size: 20px;
+   border: 3px grey solid;
    text-align: center;
-   border: 2px solid rgb(36, 204, 190);
    width: auto;
    height: auto;
    border-radius: 5px;
